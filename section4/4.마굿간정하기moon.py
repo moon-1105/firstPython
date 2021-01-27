@@ -1,5 +1,5 @@
 import sys
-#sys.stdin=open("input.txt", "rt")
+sys.stdin=open("input.txt", "rt")
 
 #마굿간 정하기
 def chk_ans(dis):
