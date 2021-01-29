@@ -1,5 +1,5 @@
 
-import sys#
+import sys
 #sys.stdin=open("in1.txt", "r")
 
 def f_check(v, s, t):
