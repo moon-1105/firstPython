@@ -42,3 +42,10 @@ while patients:
 #print(heal)
 
 print(heal.index(find)+1)
+
+"""
+수업 메모
+Q = [(pos, val) for pos, val in enumerate(list(map, input().split()))]
+enumerate 안의 리스트 까지 입력 받아서 리스트
+자동으로 pos에 index 넣어서 채크해줌
+"""
