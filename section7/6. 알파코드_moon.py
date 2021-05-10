@@ -1,49 +1,29 @@
-import sys
-#sys.stdin=open("in.txt", "r")
-
-tmp = input()
-num = []
-for ch in tmp:
-    num.append(ch)
-
-N = len(num)
-word = set()
-def cal(idx, w):
-    global word
-    if idx == N:
-        if w[len(w)-1] =='/':
-            w=w[:-1]
-        word.add(w)
-        return
+def DFS(L, P):
+    global cnt
+    if L==n:
+        cnt+=1
+        for j in range(P):
+            print(chr(res[j]+64), end='')
+        print()
     else:
-        tmpw = list(w.split('/'))
-        if int(tmpw[len(tmpw)-1]+num[idx]) > 26:
-            # 여기서 끝내기
-            cal(idx, w+'/')
-        else:
-            w += num[idx]
-            # 여기서 끝내지 않기
-            cal(idx+1, w)
-            # 여기서 끝내기
-            cal(idx+1,w+'/')
-cal(0, '')
-#print(word)
-_ans = []
-for ele in word:
-    _ans.append( list(map(int, ele.split('/'))))
-#print(_ans)
-word=[]
-ch=''
-for case in _ans:
-    for ele in case:
-        ch += chr(ele+64)
-    word.append(ch)
-    ch=''
-word.sort()
-#print(word)
+        for i in range(1, 27):
+            # code[L]이 알파벳이 딜때마다
+            if code[L]==i:
+                # 결과에 추가함.
+                res[P]=i
+                # 추가되면 다 다음 인덱스 확인
+                DFS(L+1, P+1)
+            # 0이 포함되는지 여부는 이렇게 체크함.
+            elif i>=10 and code[L]==i//10 and code[L+1]==i%10:
+                # 0이 포함되면 (10의배수면)
+                res[P]=i # 바로 넣어버리고
+                DFS(L+2, P+1) # L+1 까지 봤으니까 다음걸로 넘김???
 
-for w in word:
-    print(w)
-print(len(word))
-
-
+if __name__=="__main__":
+    code=list(map(int, input()))
+    n=len(code)
+    code.insert(n, -1)
+    res=[0]*(n+3)
+    cnt=0
+    DFS(0, 0)
+    print(cnt)
