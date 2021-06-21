@@ -1,5 +1,5 @@
 import sys
-#sys.stdin = open("in.txt")
+sys.stdin = open("in.txt")
 """
 모든 도시에서 모든 도시로 이동하는데 쓰이는 비용의 최소값
 """
@@ -29,7 +29,7 @@ if __name__ == "__main__":
         # [도시1, 도시2, 비용]
     #   INIT
     for _ in range(city+1):
-        ans.append(['M']*(city+1))
+        ans.append([5000]*(city+1))
     for ele in arr:
         ans[ele[0]][ele[1]] = ele[2]
     for i in range(1, city + 1):
@@ -40,14 +40,23 @@ if __name__ == "__main__":
     for i in range(1, city+1):
         for j in range(1, city+1):
             for idx in range(1, city+1):
-                ans[i][j] = findMin(ans[i][j], [ans[i][idx] , ans[idx][j]])
+                ans[i][j] = min(ans[i][j], ans[i][idx] + ans[idx][j])
 
+    """
+    for idx in range(1, n+1):
+        for i in range(1, n+1):
+            for j in range(1, n+1):
+                dis[i][j]=min(dis[i][j], dis[i][idx]+dis[idx][j])
+    2개 차이 생각해봐야함
+    """
+    printMap()
+"""
     for i in range(1, city + 1):
         for j in range(1, city + 1):
             for idx in range(1, city + 1):
                 ans[i][j] = findMin(ans[i][j], [ans[i][idx], ans[idx][j]])
+"""
 
-    printMap()
 
 
 
