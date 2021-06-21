@@ -42,6 +42,11 @@ if __name__ == "__main__":
             for idx in range(1, city+1):
                 ans[i][j] = findMin(ans[i][j], [ans[i][idx] , ans[idx][j]])
 
+    for i in range(1, city + 1):
+        for j in range(1, city + 1):
+            for idx in range(1, city + 1):
+                ans[i][j] = findMin(ans[i][j], [ans[i][idx], ans[idx][j]])
+
     printMap()
 
 
