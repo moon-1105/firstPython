@@ -47,15 +47,10 @@ if __name__ == "__main__":
         for i in range(1, n+1):
             for j in range(1, n+1):
                 dis[i][j]=min(dis[i][j], dis[i][idx]+dis[idx][j])
-    2개 차이 생각해봐야함
+    2개 차이 생각해봐야함 -> 너무 당연함 하나씩 해서 전체를 체크해야지
     """
     printMap()
-"""
-    for i in range(1, city + 1):
-        for j in range(1, city + 1):
-            for idx in range(1, city + 1):
-                ans[i][j] = findMin(ans[i][j], [ans[i][idx], ans[idx][j]])
-"""
+
 
 
 
