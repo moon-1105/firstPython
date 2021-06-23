@@ -21,11 +21,32 @@ if __name__ == "__main__":
         if i==-1 and j==-1:
             break
         friend[i][j] = 1
-    printMap()
+        friend[j][i] = 1
+
     for m in range(1, N+1):
         for i in range(1, N+1):
             for j in range(1, N+1):
                 friend[i][j] = min(friend[i][j], friend[i][m] + friend[m][j])
-        printMap()
+                friend[j][i] = friend[i][j]
+    #printMap()
 
+    result = []
+    for ele in friend:
+        result.append(max(ele[1:]))
+    print(result)
 
+    target = min(result)
+
+    ans=[]
+    for idx in range(len(result)):
+        if result[idx] == target:
+            ans.append(idx)
+    if len(ans) >=2:
+        for i in range(2):
+            print(ans[i], end=" ")
+    else:
+        for a in ans:
+            print(a, end=" ")
+    print()
+    for a in ans:
+        print(a, end=" ")
