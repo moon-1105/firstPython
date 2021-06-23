@@ -30,11 +30,11 @@ if __name__ == "__main__":
                 friend[j][i] = friend[i][j]
     #printMap()
 
-    result = []
-    for ele in friend:
-        result.append(max(ele[1:]))
+    result = [0]*(N+1)
+    for i in range(1, N + 1):
+        for j in range(1, N + 1):
+            result[i] = max(result[i], friend[i][j])
     print(result)
-
     target = min(result)
 
     ans=[]
