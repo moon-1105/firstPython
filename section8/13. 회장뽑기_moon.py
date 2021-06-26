@@ -34,6 +34,7 @@ if __name__ == "__main__":
     for i in range(1, N + 1):
         for j in range(1, N + 1):
             result[i] = max(result[i], friend[i][j])
+            # i번째 줄에서 젤 큰거 가 답이니까 이렇게 함
     print(result)
     target = min(result)
 
