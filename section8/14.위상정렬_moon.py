@@ -7,10 +7,20 @@ sys.stdin = open("in.txt")
 순서를 짜는 알고리즘입니다.
 만약 아래와 같은 일의 순서를 각각 지키면서 전체 일의 순서를 정한다면
 """
+def printMap():
+    for idx in range(1, N+1):
+        for jdx in range(1, N+1):
+            print(chart[idx][jdx], end=" ")
+        print()
 
 if __name__=="__main__":
     N, M = map(int, input().split())
-    chart = [[0]*N]
+    chart = []
+    for _ in range(N+1):
+        chart.append([0]*(N+1))
+    print(chart)
     for _ in range(M):
         i, j = map(int, input().split())
-        chart[i][j] =
+        chart[i][j] = 1
+    # 전체적으로 그래프를 한번씩 돌면서 계속 업데이트 해야함.
+    # 갈수있는걸(겹쳐서라도) 전부 1 체크 /
